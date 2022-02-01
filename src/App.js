@@ -4,15 +4,13 @@ import React, {useState} from 'react'
 import Title from './components/title'
 import Model from './components/model'
 import EventList from './components/eventList';
+import NewEventForm from './components/NewEventForm';
 
 function App() {
   //const [myName,setmyName] = useState('marieo')
   const [showEvents,setShowEvents] = useState(true)
   const [showModel,setShowModel]=useState(false)
   const [events,setEvents] = useState([
-    {title:'My name is Mario',id:1},
-    {title:'My name is Ruie',id:2},
-    {title:'My name is net ninja',id:3}
   ])
   const title = 'This is dynamic Title'
   const subTitle = 'This is dynamic Sub-Title'
@@ -43,6 +41,14 @@ function App() {
     setShowModel(false)
   }
 
+  const addEvent = (event)=>{
+    setEvents((preEvents)=>{
+      console.log(preEvents)
+      return [...preEvents,event]
+    
+    })
+  }
+
   return (
     <div className="App">
       <Title title={title} subtitle={subTitle}/>
@@ -56,17 +62,14 @@ function App() {
       
       {showEvents && <EventList events={events} halderClickSec ={halderClickSec}/>
       }
-      {showModel && <Model handeClose={handeClose}>
-        <h1>10% Discount is Going On!</h1>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, magnam.
-        </p>
+      {showModel && <Model handeClose={handeClose} >
+        <NewEventForm addEvent={addEvent} handeClose={handeClose}/>
       </Model>}
       <><br/>
       <button style={{
         fontFamily:'sans-serif',
         fontSize:'1rem'
-      }} onClick={ShowModelSec}>Clik to show</button>
+      }} onClick={ShowModelSec}>Add New Event</button>
       </>
      
     </div>

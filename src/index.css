@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.model_popup{
+  position:fixed;
+  height:100%;
+  width:100%;
+  top:0px;
+  background-color: rgba(240, 248, 255, 0.397);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.model{
+  height:250px;
+  width:300px;
+  background: #fff;
+}
+button{
+  border:1px solid #fff;
+  border-radius: 5px;
+  height:25px;
+  color:#fff;
+  background: orange;
+  cursor: pointer;
+}
